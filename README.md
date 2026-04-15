@@ -1,56 +1,54 @@
-# Portfolio — React + TypeScript + Vite
+# React + TypeScript + Vite
 
-## Запуск
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-```bash
-npm install
-npm run dev
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
+```js
+export default tseslint.config({
+  extends: [
+    // Remove ...tseslint.configs.recommended and replace with this
+    ...tseslint.configs.recommendedTypeChecked,
+    // Alternatively, use this for stricter rules
+    ...tseslint.configs.strictTypeChecked,
+    // Optionally, add this for stylistic rules
+    ...tseslint.configs.stylisticTypeChecked,
+  ],
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
 ```
 
-## Структура
+You can also install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```
-src/
-├── data/
-│   └── projects.ts      ← ТУТ редагуй / додавай проекти
-├── components/
-│   ├── Nav.tsx           — навігація
-│   ├── About.tsx         — секція "Про мене"
-│   ├── Projects.tsx      — сітка проектів
-│   ├── ProjectCard.tsx   — одна картка проекту
-│   ├── Modal.tsx         — модальне вікно зі стеком
-│   ├── ProjectDetail.tsx — повна сторінка проекту
-│   └── Contact.tsx       — секція контактів
-├── types/
-│   └── index.ts          — TypeScript-типи
-└── App.tsx               — головний компонент зі станом
-```
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react'
 
-## Як додати новий проект
-
-Відкрий `src/data/projects.ts` та скопіюй один з об'єктів:
-
-```ts
-{
-  id: 5,                          // унікальний номер
-  slug: 'my-project',             // URL-slug (не використовується поки що)
-  name: 'My Project',             // назва (відображається на картці)
-  short: 'Короткий опис...',      // 1-2 речення для картки та модалки
-  description: `
-    <h3>Про проект</h3>
-    <p>...</p>
-  `,                              // повний HTML-опис для detail-сторінки
-  stack: ['React', 'TypeScript'], // масив технологій
-  year: '2026',
-  githubUrl: 'https://github.com/...', // опціонально
-  demoUrl: 'https://...',              // опціонально
-  imageUrl: '/images/project.png',     // опціонально (скрін проекту)
-}
-```
-
-## Скрін проекту
-
-Поклади зображення у `public/images/` і вкажи:
-```ts
-imageUrl: '/images/my-project.png'
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
 ```
