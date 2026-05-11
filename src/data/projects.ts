@@ -104,13 +104,15 @@ export const projects: Project[] = [
     id: 4,
     slug: 'creative-builder',
     name: 'Creative Builder',
-    demoUrl: 'https://creative-builder-xi.vercel.app',
-    short: 'Інструмент для створення банерних рекламних креативів з drag-and-drop редактором елементів та SSR-рендерингом.',
-    short_en: 'An internal tool for building banner ad creatives with a drag-and-drop element editor and SSR rendering.',
+    demoUrl: 'https://creativebuilder.vercel.app/',
+    short: 'Інструмент для створення банерних рекламних креативів з drag-and-drop редактором елементів та SSR-рендерингом. Тільки для десктопів. 🚧 В розробці.',
+    short_en: 'An internal tool for building banner ad creatives with a drag-and-drop element editor and SSR rendering. Desktop only. 🚧 In development.',
     description: `
       <h3>Про проект</h3>
       <p>Creative Builder — внутрішній інструмент для дизайнерів і маркетологів.
       Дозволяє будувати HTML-банери через WYSIWYG-редактор без написання коду.</p>
+      <p><strong>⚠ Тільки для десктопів</strong> — мобільні пристрої не підтримуються.</p>
+      <p><strong>🚧 Проект знаходиться на стадії розробки</strong> — функціонал активно доповнюється.</p>
       <h3>Frontend</h3>
       <p>Angular 21 з NgRx для централізованого управління станом канвасу.
       Drag-and-drop через CDK. Кожен елемент (текст, зображення, відео, кнопка) — окремий компонент.</p>
@@ -122,6 +124,8 @@ export const projects: Project[] = [
       <h3>About</h3>
       <p>Creative Builder is an internal tool for designers and marketers.
       It allows building HTML banners through a WYSIWYG editor without writing code.</p>
+      <p><strong>⚠ Desktop only</strong> — mobile devices are not supported.</p>
+      <p><strong>🚧 Work in progress</strong> — functionality is actively being developed.</p>
       <h3>Frontend</h3>
       <p>Angular 21 with NgRx for centralized canvas state management.
       Drag-and-drop via CDK. Each element (text, image, video, button) is a standalone component.</p>
